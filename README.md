@@ -45,7 +45,7 @@ To run the project on your local machine, follow these steps:
 
    **Example `.env` file:**
    ```
-   # If you’re using Firebase emulators for local development
+   # In using Firebase emulators for local development
    VITE_APP_USE_EMULATORS=true
 
 4. **Run the development server:**
