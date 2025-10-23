@@ -30,9 +30,12 @@ function NewClientScreen({ onBackToChat }) {
         : await currentUser.getIdToken(true);
 
       // Selects API URL based on emulator usage
-      const apiUrl = useEmulators
-        ? 'http://localhost:5001/chatapp-f3bc9/us-central1/api/clients'
-        : 'https://us-central1-chatapp-f3bc9.cloudfunctions.net/api/clients';
+      // Selects API URL based on emulator usage
+     // src/components/NewClientScreen.jsx
+// src/components/NewClientScreen.jsx
+const apiUrl = useEmulators
+  ? 'http://localhost:5001/ayala-testings/us-central1/api/clients' 
+  : 'https://us-central1-ayala-testings.cloudfunctions.net/api/clients'; 
 
       // Sends client data to the backend API
       const response = await fetch(apiUrl, {

@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { rtdb, auth, db } from '../firebase';
 import { ref, onValue, push, serverTimestamp } from 'firebase/database';
 import { doc, getDoc } from 'firebase/firestore';
-import '../ui/ChatScreen.css'; 
+import '../ui/ChatScreen.css';
 
 import { FiSend, FiUserPlus, FiMessageSquare } from 'react-icons/fi';
 
@@ -13,7 +13,7 @@ function ChatScreen({ onAddNewClient }) {
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
   const [currentUser, setCurrentUser] = useState(null);
-  const [isAdmin, setIsAdmin] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false); // This will always be true after the check below
 
   const messagesEndRef = useRef(null); // Ref for auto-scrolling to the latest message
 
@@ -30,9 +30,11 @@ function ChatScreen({ onAddNewClient }) {
         const userDocRef = doc(db, 'users', user.uid);
         const userDocSnap = await getDoc(userDocRef);
         if (userDocSnap.exists()) {
-          setIsAdmin(userDocSnap.data().isAdmin === "admin"); // Checks if user is an admin
+          // *** Change here: Always set to admin ***
+          setIsAdmin(true);
         } else {
-          setIsAdmin(false);
+          // *** Change here: Set as admin even if no user document exists (new user) ***
+          setIsAdmin(true);
         }
       } else {
         setCurrentUser(null);
@@ -100,7 +102,7 @@ function ChatScreen({ onAddNewClient }) {
           <h1 className="chat-title">Chat Room</h1>
         </div>
         <div className="chat-header-right-section">
-          {isAdmin && ( // Renders "Add Client" button only if user is admin
+          {isAdmin && ( // Renders "Add Client" button only if user is admin (which is now always true)
             <button onClick={onAddNewClient} className="add-new-client-button">
               <FiUserPlus style={{ marginRight: '8px', fontSize: '1.2em' }} />
               Add Client
@@ -112,7 +114,7 @@ function ChatScreen({ onAddNewClient }) {
       <div className="messages-container">
         {messages.map((msg) => {
           const isOwnMessage = msg.uid === currentUser?.uid; // Checks if the message was sent by the current user
-          
+
           return (
             <div
               key={msg.id}

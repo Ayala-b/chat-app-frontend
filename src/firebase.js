@@ -7,14 +7,15 @@ import { getAnalytics } from "firebase/analytics";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCXjMUqyL-ntgzTfmSjpCTzRHkpt90JHK4",
-  authDomain: "chatapp-f3bc9.firebaseapp.com",
-  projectId: "chatapp-f3bc9",
-  storageBucket: "chatapp-f3bc9.firebasestorage.app",
-  messagingSenderId: "623370905413",
-  appId: "1:623370905413:web:fbc7d527a3c8c35030802c",
-  measurementId: "G-1QYLK1TFV2"
+  apiKey: "AIzaSyAeR5cUgLESl7gmWxC2IbZndZmuYDf4SA0",
+  authDomain: "ayala-testings.firebaseapp.com",
+  databaseURL: "https://ayala-testings-default-rtdb.firebaseio.com",
+  projectId: "ayala-testings",
+  storageBucket: "ayala-testings.firebasestorage.app",
+  messagingSenderId: "1010283401705",
+  appId: "1:1010283401705:web:a4b0823068186e500dfb78"
 };
+
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
