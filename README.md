@@ -1,16 +1,64 @@
-# React + Vite
+# Chat Application Front-End
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project contains the front-end code for a chat application. It is built with **React** and **Vite**, and connects to a **Firebase-based back-end**.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Authentication Screens:** Includes login/signup screens (`AuthScreen`) and a new client creation screen (`NewClientScreen`).
+- **Chat Screen:** The main user interface for displaying and managing chat conversations.
+- **Firebase Integration:** Uses Firebase for user authentication and data management (through the back-end).
+- **Responsive UI:** Designed to provide a great user experience across different devices.
 
-## React Compiler
+## Technologies Used
 
-The React Compiler is not enabled on this template. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **React:** JavaScript library for building user interfaces.
+- **Vite:** Fast build tool for front-end projects.
+- **Firebase:** Used as a BaaS (Backend as a Service) platform for authentication.
+- **CSS Modules:** For managing and isolating styles.
 
-## Expanding the ESLint configuration
+## Installation and Local Setup
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+To run the project on your local machine, follow these steps:
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (LTS version recommended)
+- [npm](https://www.npmjs.com/) (comes with Node.js) or [Yarn](https://yarnpkg.com/)
+
+### Installation Steps
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/Ayala-b/chat-app-frontend.git
+   cd chat-app-frontend
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   npm install
+   # or with Yarn
+   # yarn install
+   ```
+
+3. **Set environment variables:**
+   Create a `.env` file in the root directory of the project. Add the required environment variables for connecting to Firebase and your back-end.
+
+   **Example `.env` file:**
+   ```
+   # In using Firebase emulators for local development
+   VITE_APP_USE_EMULATORS=true
+
+4. **Run the development server:**
+   ```bash
+   npm run dev
+   # or with Yarn
+   # yarn dev
+   ```
+   The app will be available at `http://localhost:5173/` (or another port as specified by Vite).
+
+## Usage
+
+Once the app is running, you can:
+1. Sign up or log in using the authentication screens.
+2. Create a new client profile.
+3. Use the chat screen to send and receive messages (requires an active and connected back-end).
